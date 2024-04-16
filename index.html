@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Costo Total</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Costo Total</h1>
+
+        <form id="formulario">
+            <label for="producto1">Producto 1:</label>
+            <input type="number" id="producto1" name="producto1" min="0" value="0"><br><br>
+
+            <label for="producto2">Producto 2:</label>
+            <input type="number" id="producto2" name="producto2" min="0" value="0"><br><br>
+
+            <label for="servicio1">Servicio 1:</label>
+            <input type="number" id="servicio1" name="servicio1" min="0" value="0"><br><br>
+
+            <label for="servicio2">Servicio 2:</label>
+            <input type="number" id="servicio2" name="servicio2" min="0" value="0"><br><br>
+
+            <button type="button" onclick="calcularCostoTotal()">Calcular Costo Total</button>
+            <button type="button" onclick="borrarDatos()">Borrar Datos</button>
+        </form>
+
+        <p id="resultado"></p>
+    </div>
+
+    
+    <script src="js/miarchivo.js"></script>
+</body>
+</html>
+
