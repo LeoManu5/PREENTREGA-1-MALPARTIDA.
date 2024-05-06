@@ -1,39 +1,68 @@
-function calcularCostoTotal() {
-    
-    const producto1 = parseFloat(document.getElementById("producto1").value);
-    const producto2 = parseFloat(document.getElementById("producto2").value);
-    const servicio1 = parseFloat(document.getElementById("servicio1").value);
-    const servicio2 = parseFloat(document.getElementById("servicio2").value);
+const productos = [
+    { nombre: "Alarma", categoria: "alarmas", precio: 1000 },
+    { nombre: "Polarizado", categoria: "polarizados", precio: 2000 },
+    { nombre: "Levanta vidrios eléctrico", categoria: "levanta-vidrios", precio: 1500 },
+    { nombre: "Llave codificada", categoria: "llaves-codificadas", precio: 3000 }
+];
 
-    let costoTotal = 0;
 
-    const productos = [producto1, producto2];
-    for (let i = 0; i < productos.length; i++) {
-        if (!isNaN(productos[i])) { 
-            costoTotal += productos[i];
-        }
-    }
+function mostrarProductos(productos) {
+    const listaProductos = document.getElementById('lista-productos');
+    listaProductos.innerHTML = '';
 
-    if (!isNaN(servicio1)) {
-        costoTotal += servicio1;
-    }
-    if (!isNaN(servicio2)) {
-        costoTotal += servicio2;
-    }
-
-    document.getElementById("resultado").innerText = `El costo total es: ${costoTotal.toFixed(2)}`;
-    
-    console.log("Se calculó el costo total correctamente.");
+    productos.forEach(producto => {
+        const item = document.createElement('div');
+        item.innerHTML = `<p>${producto.nombre} - Precio: $${producto.precio}</p>
+                          <button onclick="agregarAlCarrito('${producto.nombre}', ${producto.precio})">Agregar al carrito</button>`;
+        listaProductos.appendChild(item);
+    });
 }
 
-function borrarDatos() {
-  
-    document.getElementById("producto1").value = 0;
-    document.getElementById("producto2").value = 0;
-    document.getElementById("servicio1").value = 0;
-    document.getElementById("servicio2").value = 0;
+function filtrarProductos(categoria) {
+    if (categoria === 'todos') {
+        mostrarProductos(productos);
+    } else {
+        const productosFiltrados = productos.filter(producto => producto.categoria === categoria);
+        mostrarProductos(productosFiltrados);
+    }
+}
 
-    document.getElementById("resultado").innerText = "";
+function agregarAlCarrito(nombre, precio) {
+    const carrito = document.getElementById('carrito');
+    const item = document.createElement('li');
+    item.textContent = `${nombre} - Precio: $${precio}`;
+    carrito.appendChild(item);
 
-    console.log("Los datos han sido borrados.");
+    
+    actualizarTotal(precio);
+}
+
+function actualizarTotal(precio) {
+    const totalElement = document.getElementById('total');
+    const totalActual = parseFloat(totalElement.textContent.replace('$', ''));
+    const nuevoTotal = totalActual + precio;
+    totalElement.textContent = `$${nuevoTotal}`;
+}
+
+document.getElementById('filtro-categoria').addEventListener('change', function() {
+    const categoriaSeleccionada = this.value;
+    filtrarProductos(categoriaSeleccionada);
+});
+
+mostrarProductos(productos);
+
+function finalizarCompra() {
+   
+    alert('Compra finalizada. ¡Gracias por su compra!');
+       
+    limpiarCarrito();
+}
+
+function limpiarCarrito() {
+    const listaCarrito = document.querySelector('#carrito ul');
+    listaCarrito.innerHTML = '';
+
+   
+    const totalElement = document.getElementById('total');
+    totalElement.textContent = '$0';
 }
