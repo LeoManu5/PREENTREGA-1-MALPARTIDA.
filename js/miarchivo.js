@@ -7,7 +7,6 @@ function calcularCostoTotal() {
 
     let costoTotal = 0;
 
-    
     const productos = [producto1, producto2];
     for (let i = 0; i < productos.length; i++) {
         if (!isNaN(productos[i])) { 
@@ -15,7 +14,6 @@ function calcularCostoTotal() {
         }
     }
 
-    
     if (!isNaN(servicio1)) {
         costoTotal += servicio1;
     }
@@ -23,7 +21,6 @@ function calcularCostoTotal() {
         costoTotal += servicio2;
     }
 
-    
     document.getElementById("resultado").innerText = `El costo total es: ${costoTotal.toFixed(2)}`;
     
     console.log("Se calculó el costo total correctamente.");
@@ -38,6 +35,5 @@ function borrarDatos() {
 
     document.getElementById("resultado").innerText = "";
 
-   
     console.log("Los datos han sido borrados.");
 }
