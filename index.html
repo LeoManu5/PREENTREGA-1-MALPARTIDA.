@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos de Seguridad para Autos</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css\styles.css">
 </head>
 <body>
     <header>
@@ -30,17 +30,46 @@
             </select>
         </div>
         <div id="lista-productos">
-            <!-- Los productos se generarán dinámicamente aquí -->
+            <div class="producto">
+                <img src="imagenes/D_NQ_NP_657720-MLA44674520482_012021-O.webp" alt="Alarma">
+                <p>Alarma - Precio: $1000</p>
+                <button onclick="agregarAlCarrito('Alarma', 1000)">Agregar al carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="imagenes/polarizados 2.jpg" alt="Polarizado">
+                <p>Polarizado - Precio: $2000</p>
+                <button onclick="agregarAlCarrito('Polarizado', 2000)">Agregar al carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="imagenes/LEVANTA.jpg" alt="Levanta vidrios eléctrico">
+                <p>Levanta vidrios eléctrico - Precio: $1500</p>
+                <button onclick="agregarAlCarrito('Levanta vidrios eléctrico', 1500)">Agregar al carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="imagenes/llaves.jpg" alt="Llave codificada">
+                <p>Llave codificada - Precio: $3000</p>
+                <button onclick="agregarAlCarrito('Llave codificada', 3000)">Agregar al carrito</button>
+            </div>
         </div>
     </section>
+    
+    
+
     <section id="carrito">
         <h2>Carrito de Compras</h2>
         <ul></ul>
         <p>Total: <span id="total">$0</span></p>
         <button onclick="finalizarCompra()">Finalizar Compra</button>
-        <button onclick="limpiarCarrito()">Limpiar Carrito</button>
     </section>
-    <script src="js/scripts.js"></script>
+
+    <footer>
+        <p>&copy; 2024 Productos de Seguridad para Autos</p>
+    </footer>
+
+    <script src="js/miarchivo.js"></script>
 </body>
 </html>
 
