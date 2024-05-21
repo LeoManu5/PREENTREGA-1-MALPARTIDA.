@@ -32,7 +32,6 @@ function filtrarProductos(categoria) {
     }
 }
 
-// Función para agregar un producto al carrito
 function agregarAlCarrito(nombre, precio) {
     const carrito = document.querySelector('#carrito ul');
     const item = document.createElement('li');
@@ -45,6 +44,7 @@ function agregarAlCarrito(nombre, precio) {
     // Guardar el carrito en Local Storage
     guardarCarrito();
 }
+
 
 // Función para actualizar el total del carrito
 function actualizarTotal(precio) {
@@ -110,3 +110,4 @@ mostrarProductos(productos);
 
 // Cargar el carrito desde Local Storage al cargar la página
 cargarCarrito();
+

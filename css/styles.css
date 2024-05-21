@@ -1,24 +1,26 @@
 body {
     font-family: Arial, sans-serif;
+    background: url('imagenes/fondo_auto.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
     margin: 0;
     padding: 0;
 }
-/* Estilos para la barra de navegación */
+
 header {
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 10px 0;
+    text-align: center;
 }
 
 nav ul {
     list-style-type: none;
-    margin: 0;
     padding: 0;
-    text-align: center;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin: 0 15px;
 }
 
 nav ul li a {
@@ -26,36 +28,24 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* Estilos para la sección de productos */
-#productos {
+#productos, #carrito {
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
-    text-align: center;
-}
-
-#filtro {
-    margin-bottom: 20px;
-}
-
-#lista-productos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin: 20px;
+    border-radius: 10px;
 }
 
 .producto {
-    width: 200px;
     margin: 10px;
     padding: 10px;
-    background-color: #f9f9f9;
+    border: 1px solid #fff;
     border-radius: 10px;
     text-align: center;
 }
 
 .producto img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+    max-width: 100px;
+    border-radius: 10px;
 }
 
 .producto p {
@@ -73,12 +63,6 @@ nav ul li a {
 
 .producto button:hover {
     background-color: #555;
-}
-
-/* Estilos para la sección del carrito */
-#carrito {
-    padding: 20px;
-    text-align: center;
 }
 
 #carrito ul {
