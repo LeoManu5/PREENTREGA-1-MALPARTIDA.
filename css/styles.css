@@ -1,95 +1,179 @@
+/* styles.css */
+
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
 }
 
+/* Barra de navegación */
 header {
-    background-color: rgba(0, 0, 0, 0.8); 
-    color: #fff;
+    background-color: #444;
     padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 999; 
+    position: relative;
 }
 
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    text-align: center; 
+    text-align: center;
+    display: inline-block;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: #fff;
     text-decoration: none;
-    padding: 10px 15px; 
-    border-radius: 5px; 
-    transition: background-color 0.3s; 
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); 
+    background-color: #666;
 }
 
+/* Icono del carrito */
+.carrito-icono {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
 
-section {
+.carrito-icono img {
+    width: 30px; /* Ajusta el tamaño aquí */
+    height: 30px; /* Ajusta el tamaño aquí */
+    cursor: pointer;
+}
+
+/* Sección de productos */
+#productos {
     padding: 20px;
+    background-color: #e0e0e0; /* Gris claro */
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
+#productos h1 {
     text-align: center;
-    padding: 10px 0;
+    color: #333;
 }
 
+#filtro {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#filtro select {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
 #lista-productos {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px;
 }
 
 .producto {
-    width: 200px;
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
     border-radius: 10px;
+    padding: 15px;
     text-align: center;
+    width: 200px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .producto img {
-    width: 100px; 
-    height: 100px; 
-    border-radius: 50%; 
-    margin-bottom: 10px; 
-}
-
-.producto h3 {
-    color: #fff;
-    margin-bottom: 5px;
-}
-.producto {
-    width: 200px;
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
+    max-width: 100%;
     border-radius: 10px;
+}
+
+.producto p {
+    color: #666;
+    margin: 10px 0;
+}
+
+.producto button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.producto button:hover {
+    background-color: #666;
+}
+
+/* Sección del carrito */
+#carrito {
+    padding: 20px;
+    background-color: #d0d0d0; /* Gris más oscuro */
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+#carrito h2 {
     text-align: center;
+    color: #333;
 }
 
-.producto img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+/* styles.css */
+
+/* ... código anterior ... */
+
+/* Ajustes adicionales para el carrito */
+#carrito ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
 }
 
+#carrito ul li button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#carrito ul li button:hover {
+    background-color: #c0392b;
+}
+
+/* ... código posterior ... */
+
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #444;
+    color: white;
+}
