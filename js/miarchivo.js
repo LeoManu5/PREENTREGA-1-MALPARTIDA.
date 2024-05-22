@@ -1,6 +1,3 @@
-// js/miarchivo.js
-
-// Array de productos en formato JSON
 const productos = [
     {
         "id": 1,
@@ -32,10 +29,10 @@ const productos = [
     }
 ];
 
-// Inicializar carrito desde localStorage o vacío
+
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-// Función para renderizar productos
+
 function renderizarProductos(productos) {
     const listaProductos = document.getElementById('lista-productos');
     listaProductos.innerHTML = '';
@@ -51,7 +48,6 @@ function renderizarProductos(productos) {
     });
 }
 
-// Función para agregar un producto al carrito
 function agregarAlCarrito(id) {
     const producto = productos.find(p => p.id === id);
     const productoEnCarrito = carrito.find(item => item.id === id);
@@ -66,7 +62,7 @@ function agregarAlCarrito(id) {
     renderizarCarrito();
 }
 
-// Función para renderizar el carrito de compras
+
 function renderizarCarrito() {
     const carritoDiv = document.getElementById('carrito').querySelector('ul');
     carritoDiv.innerHTML = '';
@@ -82,22 +78,21 @@ function renderizarCarrito() {
     document.getElementById('total').textContent = `$${total}`;
 }
 
-// Función para eliminar un producto del carrito
 function eliminarDelCarrito(index) {
     carrito.splice(index, 1);
     localStorage.setItem('carrito', JSON.stringify(carrito));
     renderizarCarrito();
 }
 
-// Función para finalizar la compra (puedes personalizar esta función según tus necesidades)
+
 function finalizarCompra() {
-    alert('Compra finalizada,Gracias por Elejirnos');
+    alert('Compra finalizada,Gracias por Elegirnos');
     carrito = [];
     localStorage.removeItem('carrito');
     renderizarCarrito();
 }
 
-// Función para filtrar productos por categoría
+
 function filtrarProductos() {
     const categoria = document.getElementById('filtro-categoria').value;
     if (categoria === 'todos') {
@@ -108,7 +103,6 @@ function filtrarProductos() {
     }
 }
 
-// Inicializar la aplicación
 document.getElementById('filtro-categoria').addEventListener('change', filtrarProductos);
 renderizarProductos(productos);
 renderizarCarrito();

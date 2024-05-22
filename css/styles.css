@@ -1,6 +1,3 @@
-/* styles.css */
-
-/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -9,7 +6,7 @@ body {
     color: #333;
 }
 
-/* Barra de navegación */
+
 header {
     background-color: #444;
     padding: 10px 0;
@@ -41,7 +38,7 @@ nav ul li a:hover {
     background-color: #666;
 }
 
-/* Icono del carrito */
+
 .carrito-icono {
     position: absolute;
     right: 20px;
@@ -50,15 +47,14 @@ nav ul li a:hover {
 }
 
 .carrito-icono img {
-    width: 30px; /* Ajusta el tamaño aquí */
-    height: 30px; /* Ajusta el tamaño aquí */
+    width: 30px; 
+    height: 30px; 
     cursor: pointer;
 }
 
-/* Sección de productos */
 #productos {
     padding: 20px;
-    background-color: #e0e0e0; /* Gris claro */
+    background-color: #e0e0e0; 
     margin: 20px auto;
     width: 90%;
     max-width: 1200px;
@@ -124,10 +120,9 @@ nav ul li a:hover {
     background-color: #666;
 }
 
-/* Sección del carrito */
 #carrito {
     padding: 20px;
-    background-color: #d0d0d0; /* Gris más oscuro */
+    background-color: #d0d0d0; 
     margin: 20px auto;
     width: 90%;
     max-width: 1200px;
@@ -140,11 +135,6 @@ nav ul li a:hover {
     color: #333;
 }
 
-/* styles.css */
-
-/* ... código anterior ... */
-
-/* Ajustes adicionales para el carrito */
 #carrito ul li {
     display: flex;
     justify-content: space-between;
@@ -167,10 +157,6 @@ nav ul li a:hover {
     background-color: #c0392b;
 }
 
-/* ... código posterior ... */
-
-
-/* Pie de página */
 footer {
     text-align: center;
     padding: 10px 0;
