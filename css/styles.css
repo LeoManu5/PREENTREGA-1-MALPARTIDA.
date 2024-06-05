@@ -1,3 +1,6 @@
+/* styles.css */
+
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,7 +9,7 @@ body {
     color: #333;
 }
 
-
+/* Barra de navegación */
 header {
     background-color: #444;
     padding: 10px 0;
@@ -38,7 +41,7 @@ nav ul li a:hover {
     background-color: #666;
 }
 
-
+/* Icono del carrito */
 .carrito-icono {
     position: absolute;
     right: 20px;
@@ -47,14 +50,15 @@ nav ul li a:hover {
 }
 
 .carrito-icono img {
-    width: 30px; 
-    height: 30px; 
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
 
+/* Sección de productos */
 #productos {
     padding: 20px;
-    background-color: #e0e0e0; 
+    background-color: #e0e0e0; /* Gris claro */
     margin: 20px auto;
     width: 90%;
     max-width: 1200px;
@@ -98,6 +102,8 @@ nav ul li a:hover {
 
 .producto img {
     max-width: 100%;
+    height: 150px;
+    object-fit: contain; /* Asegura que la imagen no se corte */
     border-radius: 10px;
 }
 
@@ -120,9 +126,10 @@ nav ul li a:hover {
     background-color: #666;
 }
 
+/* Sección del carrito */
 #carrito {
     padding: 20px;
-    background-color: #d0d0d0; 
+    background-color: #d0d0d0; /* Gris más oscuro */
     margin: 20px auto;
     width: 90%;
     max-width: 1200px;
@@ -135,28 +142,40 @@ nav ul li a:hover {
     color: #333;
 }
 
-#carrito ul li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+#carrito ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-#carrito ul li button {
-    background-color: #e74c3c;
+#carrito ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+
+#carrito #total {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#carrito button {
+    background-color: #27ae60; /* Color verde */
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    display: block;
+    margin: 20px auto;
     transition: background-color 0.3s ease;
 }
 
-#carrito ul li button:hover {
-    background-color: #c0392b;
+#carrito button:hover {
+    background-color: #2ecc71;
 }
 
+/* Pie de página */
 footer {
     text-align: center;
     padding: 10px 0;
