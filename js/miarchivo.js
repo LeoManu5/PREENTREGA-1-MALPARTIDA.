@@ -1,8 +1,8 @@
 const productos = [
-    { id: 1, nombre: 'Alarma', precio: 1000, img: 'imagenes/D_NQ_NP_657720-MLA44674520482_012021-O.webp' },
-    { id: 2, nombre: 'Polarizado', precio: 2000, img: 'imagenes/polarizados 2.jpg' },
-    { id: 3, nombre: 'Levanta vidrios eléctrico', precio: 1500, img: 'imagenes/LEVANTA.jpg' },
-    { id: 4, nombre: 'Llave codificada', precio: 3000, img: 'imagenes/llaves.jpg' }
+    { id: 1, nombre: 'Alarma', precio: 165000, img: 'imagenes/D_NQ_NP_657720-MLA44674520482_012021-O.webp' },
+    { id: 2, nombre: 'Polarizado', precio: 95000, img: 'imagenes/polarizados 2.jpg' },
+    { id: 3, nombre: 'Levanta vidrios eléctrico', precio: 350000, img: 'imagenes/LEVANTA.jpg' },
+    { id: 4, nombre: 'Llave codificada', precio: 85000, img: 'imagenes/llaves.jpg' }
 ];
 
 const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
