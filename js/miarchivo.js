@@ -68,6 +68,11 @@ function eliminarDelCarrito(id) {
 }
 
 function pagar() {
+    if (carrito.length === 0) {
+        Swal.fire('Carrito vacío', 'Por favor, agregue productos al carrito antes de pagar.', 'warning');
+        return;
+    }
+
     Swal.fire({
         title: '¿Está seguro?',
         text: "Está a punto de finalizar la compra",
