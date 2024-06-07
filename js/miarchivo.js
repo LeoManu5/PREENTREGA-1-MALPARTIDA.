@@ -1,5 +1,3 @@
-// miarchivo.js
-
 const productos = [
     { id: 1, nombre: 'Alarma', precio: 1000, img: 'imagenes/D_NQ_NP_657720-MLA44674520482_012021-O.webp' },
     { id: 2, nombre: 'Polarizado', precio: 2000, img: 'imagenes/polarizados 2.jpg' },
