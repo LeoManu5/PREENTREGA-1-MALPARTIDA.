@@ -7,7 +7,7 @@ const productos = [
     { id: 4, nombre: 'Llave codificada', precio: 3000, img: 'imagenes/llaves.jpg' }
 ];
 
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 function renderizarProductos() {
     const listaProductos = document.getElementById('lista-productos');
@@ -78,7 +78,6 @@ function pagar() {
     }).then((result) => {
         if (result.isConfirmed) {
             localStorage.removeItem('carrito');
-            carrito = [];
             renderizarCarrito();
             Swal.fire('¡Pagado!', 'Su compra ha sido completada.', 'success');
         }
