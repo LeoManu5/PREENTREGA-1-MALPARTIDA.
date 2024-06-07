@@ -1,5 +1,3 @@
-// miarchivo.js
-
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 function renderizarProductos() {
