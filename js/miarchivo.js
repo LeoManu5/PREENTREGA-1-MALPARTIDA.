@@ -7,33 +7,26 @@ const productos = [
     { id: 4, nombre: 'Llave codificada', precio: 3000, img: 'imagenes/llaves.jpg' }
 ];
 
-// miarchivo.js
-
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 function renderizarProductos() {
-    fetch('productos.json')
-        .then(response => response.json())
-        .then(data => {
-            const listaProductos = document.getElementById('lista-productos');
-            listaProductos.innerHTML = '';
-            data.forEach(producto => {
-                const productoDiv = document.createElement('div');
-                productoDiv.classList.add('producto', 'col-md-4', 'mb-4');
-                productoDiv.innerHTML = `
-                    <div class="card">
-                        <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
-                        <div class="card-body">
-                            <h5 class="card-title">${producto.nombre}</h5>
-                            <p class="card-text">Precio: $${producto.precio}</p>
-                            <button class="btn btn-dark" onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
-                        </div>
-                    </div>
-                `;
-                listaProductos.appendChild(productoDiv);
-            });
-        })
-        .catch(error => console.error('Error al cargar los productos:', error));
+    const listaProductos = document.getElementById('lista-productos');
+    listaProductos.innerHTML = '';
+    productos.forEach(producto => {
+        const productoDiv = document.createElement('div');
+        productoDiv.classList.add('producto', 'col-md-4', 'mb-4');
+        productoDiv.innerHTML = `
+            <div class="card">
+                <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
+                <div class="card-body">
+                    <h5 class="card-title">${producto.nombre}</h5>
+                    <p class="card-text">Precio: $${producto.precio}</p>
+                    <button class="btn btn-dark" onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
+                </div>
+            </div>
+        `;
+        listaProductos.appendChild(productoDiv);
+    });
 }
 
 function renderizarCarrito() {
@@ -53,20 +46,15 @@ function renderizarCarrito() {
 }
 
 function agregarAlCarrito(id) {
-    fetch('productos.json')
-        .then(response => response.json())
-        .then(data => {
-            const producto = data.find(p => p.id === id);
-            const item = carrito.find(i => i.id === id);
-            if (item) {
-                item.cantidad++;
-            } else {
-                carrito.push({ ...producto, cantidad: 1 });
-            }
-            localStorage.setItem('carrito', JSON.stringify(carrito));
-            renderizarCarrito();
-        })
-        .catch(error => console.error('Error al agregar producto al carrito:', error));
+    const producto = productos.find(p => p.id === id);
+    const item = carrito.find(i => i.id === id);
+    if (item) {
+        item.cantidad++;
+    } else {
+        carrito.push({ ...producto, cantidad: 1 });
+    }
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    renderizarCarrito();
 }
 
 function eliminarDelCarrito(id) {
