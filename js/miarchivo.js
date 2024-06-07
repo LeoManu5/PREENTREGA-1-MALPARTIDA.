@@ -1,30 +1,30 @@
-const productos = [
-    { id: 1, nombre: 'Alarma', precio: 165000, img: 'imagenes/D_NQ_NP_657720-MLA44674520482_012021-O.webp' },
-    { id: 2, nombre: 'Polarizado', precio: 95000, img: 'imagenes/polarizados 2.jpg' },
-    { id: 3, nombre: 'Levanta vidrios eléctrico', precio: 350000, img: 'imagenes/LEVANTA.jpg' },
-    { id: 4, nombre: 'Llave codificada', precio: 85000, img: 'imagenes/llaves.jpg' }
-];
+// miarchivo.js
 
-const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 function renderizarProductos() {
-    const listaProductos = document.getElementById('lista-productos');
-    listaProductos.innerHTML = '';
-    productos.forEach(producto => {
-        const productoDiv = document.createElement('div');
-        productoDiv.classList.add('producto', 'col-md-4', 'mb-4');
-        productoDiv.innerHTML = `
-            <div class="card">
-                <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
-                <div class="card-body">
-                    <h5 class="card-title">${producto.nombre}</h5>
-                    <p class="card-text">Precio: $${producto.precio}</p>
-                    <button class="btn btn-dark" onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
-                </div>
-            </div>
-        `;
-        listaProductos.appendChild(productoDiv);
-    });
+    fetch('./js/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const listaProductos = document.getElementById('lista-productos');
+            listaProductos.innerHTML = '';
+            data.forEach(producto => {
+                const productoDiv = document.createElement('div');
+                productoDiv.classList.add('producto', 'col-md-4', 'mb-4');
+                productoDiv.innerHTML = `
+                    <div class="card">
+                        <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
+                        <div class="card-body">
+                            <h5 class="card-title">${producto.nombre}</h5>
+                            <p class="card-text">Precio: $${producto.precio}</p>
+                            <button class="btn btn-dark" onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
+                        </div>
+                    </div>
+                `;
+                listaProductos.appendChild(productoDiv);
+            });
+        })
+        .catch(error => console.error('Error al cargar los productos:', error));
 }
 
 function renderizarCarrito() {
@@ -44,15 +44,20 @@ function renderizarCarrito() {
 }
 
 function agregarAlCarrito(id) {
-    const producto = productos.find(p => p.id === id);
-    const item = carrito.find(i => i.id === id);
-    if (item) {
-        item.cantidad++;
-    } else {
-        carrito.push({ ...producto, cantidad: 1 });
-    }
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    renderizarCarrito();
+    fetch('./js/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const producto = data.find(p => p.id === id);
+            const item = carrito.find(i => i.id === id);
+            if (item) {
+                item.cantidad++;
+            } else {
+                carrito.push({ ...producto, cantidad: 1 });
+            }
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            renderizarCarrito();
+        })
+        .catch(error => console.error('Error al agregar producto al carrito:', error));
 }
 
 function eliminarDelCarrito(id) {
@@ -76,6 +81,7 @@ function pagar() {
     }).then((result) => {
         if (result.isConfirmed) {
             localStorage.removeItem('carrito');
+            carrito = [];
             renderizarCarrito();
             Swal.fire('¡Pagado!', 'Su compra ha sido completada.', 'success');
         }
